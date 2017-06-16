@@ -28,19 +28,23 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().println("salut");
-		String message = request.getParameter("message");
-		request.setAttribute("message", message);
+		//String message = request.getParameter("message");
+		//request.setAttribute("message", message);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request,response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String user = request.getParameter("uname");
+		request.setAttribute("uname", user);
+		String pmsg = request.getParameter("pmessage");
+		request.setAttribute("pmessage", pmsg);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
-		String post = request.getParameter("post");
-		request.setAttribute("post", post);
+		
 	}
 
 }
